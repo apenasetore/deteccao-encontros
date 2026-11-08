@@ -85,14 +85,12 @@ Para cada grupo de timestamp:
 4. Para os pares que sobram, calcula a distância com Haversine. Se for menor que 20 m, registra
    o encontro e classifica.
 
-O corte é seguro porque a distância entre dois pontos nunca é menor que a distância só no eixo
-norte–sul (`R · Δlat`). Se a diferença de latitude já dá 20 m ou mais, a distância real também
-dá. Como a lista está ordenada, todos os registros seguintes estão ainda mais longe.
+Se a diferença de latitude já dá 20 m ou mais, a distância real também
+o é. Como a lista está ordenada, todos os registros seguintes estão ainda mais longe.
 
 Com isso, o custo por grupo cai de O(n²), comparando todos os pares, para
 O(n log n + pares próximos). O resultado é o mesmo da comparação de todos com todos.
 
-Tudo roda num único processo, percorrendo os grupos em sequência.
 
 ## Resultados
 
@@ -110,10 +108,7 @@ Saída do `npm start`, rodando os 7 datasets em sequência:
 
 - **leitura:** download + parse em stream + agrupamento por timestamp.
 - **detecção:** ordenação + comparação dentro de cada timestamp.
-- **gabarito:** `ok` quando o resultado bate exatamente com `respostas<N>.json`. Só os datasets
-  1 e 2 têm gabarito.
-
-A leitura é a parte mais cara: no dataset 7, ela leva ~50 s, enquanto a detecção leva ~3 s.
+- **gabarito:** `ok` quando o resultado bate exatamente com `respostas<N>.json`.
 
 ## Estrutura
 
