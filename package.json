@@ -1,0 +1,14 @@
+{
+  "name": "monitoramento",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+   "scripts": {
+    "start": "node index.js",
+    "bench": "node --max-old-space-size=8192 benchmark.js",
+    "dev": "node --watch index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
